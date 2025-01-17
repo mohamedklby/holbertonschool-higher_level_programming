@@ -2,10 +2,7 @@
 import random
 number = random.randint(-10000, 10000)
 
-# Dernier chiffre du nombre
 last_digit = abs(number) % 10
-
-# Affichage du résultat avec les conditions
 print(f"Last digit of {number} is {last_digit}", end="")
 
 if number > 5:
