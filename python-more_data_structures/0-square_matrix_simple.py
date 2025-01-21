@@ -1,5 +1,6 @@
 #!/usr/bin/python3
-
 def square_matrix_simple(matrix=[]):
-    new_matrix = [list(map(lambda x: x**2, row)) for row in matrix]
-    return new_matrix
+
+if matrix is None:
+        matrix = []
+    return [[element ** 2 for element in row] for row in matrix]
