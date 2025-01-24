@@ -9,11 +9,11 @@ def text_indentation(text):
 
     while start < len(text):
         if text[start] in characters:
-            print(text[start].strip())
+            print(text[start])
             print()
             start += 1
-        elif text[start] == " ":
-            start += 1
+            while start < len(text) and text[start] == " ":
+                start += 1
         else:
             print(text[start], end="")
             start += 1
