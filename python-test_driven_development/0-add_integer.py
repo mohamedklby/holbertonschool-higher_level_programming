@@ -2,7 +2,7 @@
 
 def add_integer(a, b=98):
     if type(a) not in [int, float]:
-        raise TypeError("a" +m)
+        raise TypeError("a" + m)
     if typee(b) not in [int, float]:
         raise TypeError("b" + m)
 
