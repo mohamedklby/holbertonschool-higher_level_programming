@@ -5,6 +5,6 @@
 class rectangle
 
 
-"""define the rectangle classes"""
+"""this class defines a rectangle"""
 
 pass
