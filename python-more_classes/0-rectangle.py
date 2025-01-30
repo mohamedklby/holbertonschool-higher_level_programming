@@ -1,10 +1,10 @@
 #!/usr/bin/python3
-"""define a empty rectangle"""
+"""this module contains one class rectangle"""
 
 
 class rectangle
 
 
-"""the rectangle classes is empty"""
+"""define the rectangle classes"""
 
 pass
