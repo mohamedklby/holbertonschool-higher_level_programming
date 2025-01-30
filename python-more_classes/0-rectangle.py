@@ -4,9 +4,7 @@ this module contains one class rectangle
 '''
 
 
-class rectangle
+class Rectangle:
+    """this class defines a rectangle"""
 
-
-"""this class defines a rectangle"""
-
-pass
+    pass
