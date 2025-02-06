@@ -1,7 +1,11 @@
 #!/usr/bin/python3
-"""Lookup order in Python"""
+'''
+this is a class
+'''
 
 
 def lookup(obj):
-    """Lookup order"""
-    return dir(obj):
+    '''
+    look up class
+    '''
+    return dir(obj)
