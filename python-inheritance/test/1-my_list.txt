@@ -1,39 +1,29 @@
-0 - Import:
-    >>> MyList = __import__('1-my_list').MyList
+>>> MyList = __import__('1-my_list').MyList
 
-Test 1 : Basecase
-    >>> my_list = MyList()
-    >>> my_list.append(1)
-    >>> my_list.append(2)
-    >>> my_list.print_sorted()
-    [1, 2]
+>>> my_list = MyList()
+>>> my_list.append(1)
+>>> my_list.append(4)
+>>> my_list.append(2)
+>>> my_list.append(3)
+>>> my_list.append(5)
 
-Test 2 : my_list's elem < 0
-    >>> my_list = MyList()
-    >>> my_list.append(-1)
-    >>> my_list.append(2)
-    >>> my_list.print_sorted()
-    [-1, 2]
+>>> MyList.append('betty')
+Traceback (most recent call last):
+TypeError: descriptor 'append' for 'list' objects doesn't apply to a 'str' object
 
-Test 3 : my_list is not sorted
-    >>> my_list = MyList()
-    >>> my_list.append(2)
-    >>> my_list.append(1)
-    >>> my_list.print_sorted()
-    [1, 2]
+>>> print(my_list)
+[1, 4, 2, 3, 5]
 
-Test 4 : my_list is not sorted and elem is < 0
-    >>> my_list = MyList()
-    >>> my_list.append(2)
-    >>> my_list.append(-1)
-    >>> my_list.print_sorted()
-    [-1, 2]
+>>> my_list.print_sorted()
+[1, 2, 3, 4, 5]
 
-Test 1.1 : Return
-    >>> print(my_list)
-    [2, -1]
+>>> my_list.append(-1)
+>>> print(my_list)
+[1, 4, 2, 3, 5, -1]
 
-Test 5 : Arg == 0 
-    >>> my_list = MyList()
-    >>> my_list.print_sorted()
-    []
+>>> my_list.print_sorted()
+[-1, 1, 2, 3, 4, 5]
+
+>>> my_list = MyList()
+>>> my_list.print_sorted()
+[]
