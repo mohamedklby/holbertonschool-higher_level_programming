@@ -41,3 +41,4 @@ def generate_invitations(template, attendees):
             print(f"Generated {file_name}")
         except Exception as e:
             print(f"Error writing file {file_name}: {e}")
+        
