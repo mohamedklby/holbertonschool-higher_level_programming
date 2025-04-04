@@ -1,25 +1,56 @@
 #!/usr/bin/python3
 """
-Script that takes in the name of a state as an argument and lists all
-cities of that state using the database hbtn_0e_4_usa.
-This version prevents SQL injection.
+    Script that lists all states from the database.
 """
 import MySQLdb
 import sys
 
 
-if __name__ == "__main__":
-    db = MySQLdb.connect(
-        host="localhost", port=3306,
-        user=sys.argv[1], passwd=sys.argv[2],
-        db=sys.argv[3]
+def connectDb(user, password, db):
+    """
+        Get connection with the database.
+        Args:
+            user (str): Username of the user.
+            password (str): Password of the user.
+            db (str): Database to retrieve.
+        Return:
+            Connection database.
+    """
+    conn = MySQLdb.connect(
+        host="localhost",
+        port=3306,
+        user=user,
+        passwd=password,
+        db=db,
+        charset="utf8"
     )
-    cur = db.cursor()
-    query = ("SELECT cities.name FROM cities "
-             "JOIN states ON cities.state_id = states.id "
-             "WHERE states.name = %s ORDER BY cities.id ASC")
-    cur.execute(query, (sys.argv[4],))
-    rows = cur.fetchall()
-    print(", ".join(city[0] for city in rows))
+    return conn
+
+
+if __name__ == "__main__":
+    user = sys.argv[1]
+    password = sys.argv[2]
+    db = sys.argv[3]
+    arg = sys.argv[4]
+
+    conn = connectDb(user, password, db)
+    cur = conn.cursor()
+
+    query = f"""
+        SELECT cities.name
+        FROM cities
+        JOIN
+            states ON states.id = cities.state_id
+        WHERE
+            states.name = %s
+        ORDER BY cities.id ASC
+    """
+    cur.execute(query, (arg,))
+
+    query_rows = cur.fetchall()
+    results = []
+    for row in query_rows:
+        results.append(row[0])
+    print(", ".join(results))
     cur.close()
-    db.close()
+    conn.close()
